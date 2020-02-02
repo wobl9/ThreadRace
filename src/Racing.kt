@@ -13,6 +13,7 @@ object Racing {
 
     private val logger = FileWriter(fileForLogs)
 
+    @Volatile
     private var inRace = 0
     private var allParticipants = 0
 
@@ -58,6 +59,7 @@ object Racing {
     private fun finishRace() {
         inRace--
         if (inRace == 0) {
+            allParticipants = 0
             logger.close()
         }
     }
